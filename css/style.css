@@ -1,0 +1,13 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 40px;
+}
+a {
+  color: #9cf;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
