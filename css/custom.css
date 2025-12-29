@@ -1,0 +1,18 @@
+/* 正规图片显示：不溢出、等比缩放、居中、带一点呼吸感 */
+.post-content img,
+article img {
+  display: block;
+  max-width: 980px;
+  width: 100%;
+  height: auto;
+  margin: 18px auto;
+}
+
+/* 小屏时贴边更舒服 */
+@media (max-width: 1020px) {
+  .post-content img,
+  article img {
+    max-width: 100%;
+    margin: 14px 0;
+  }
+}
