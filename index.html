@@ -1,21 +1,440 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Y</title>
-<meta name="generator" content="Hexo 8.1.1"></head>
-<body style="margin:40px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Arial,sans-serif;">
-  <article class="post">
-  <h1></h1>
-  <div class="meta">2025-12-29</div>
-  <hr>
-  <!doctype html>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/x-2/">
-<title>redirect</title>
+  <head>
+    <meta charset="UTF-8" />
+    <base href="https://y-0-node.github.io/YUNHENODE.github.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="云鹤系统公开访客入口，集中浏览云鹤系统的重点文章、现实观察、案例档案、摄影作品与关于说明。"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="YUNHENODE" />
+    <meta
+      name="keywords"
+      content="云鹤系统,YUNHENODE,访客入口,结构分析,现实观察,案例档案,摄影作品"
+    />
+    <link rel="canonical" href="https://y-0-node.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="云鹤系统 YUNHENODE" />
+    <meta property="og:title" content="云鹤系统访客入口｜YUNHENODE" />
+    <meta
+      property="og:description"
+      content="公开浏览云鹤系统的重点文章、现实观察、案例档案、摄影作品与关于说明。"
+    />
+    <meta property="og:url" content="https://y-0-node.github.io/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="云鹤系统访客入口｜YUNHENODE" />
+    <meta
+      name="twitter:description"
+      content="公开浏览云鹤系统的重点文章、现实观察、案例档案、摄影作品与关于说明。"
+    />
+    <title>访客入口｜云鹤系统</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/styles/components/edge-drawer.css?v=20260720-2" />
+    <link rel="stylesheet" href="assets/styles/pages/visitor.css?v=20260726-footer-counter-1" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "云鹤系统访客入口",
+        "alternateName": "YUNHENODE Public Visitor Entry",
+        "url": "https://y-0-node.github.io/",
+        "description": "云鹤系统公开访客入口，集中浏览重点文章、现实观察、案例档案、摄影作品与关于说明。",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "云鹤系统 YUNHENODE",
+          "url": "https://y-0-node.github.io/YUNHENODE.github.io/"
+        },
+        "inLanguage": "zh-CN"
+      }
+    </script>
+  </head>
 
-</article>
+  <body>
+    <header class="topbar">
+      <a
+        class="logo logo-back"
+        href="index.html"
+        onclick="
+          if (window.history.length > 1) {
+            event.preventDefault();
+            window.history.back();
+          }
+        "
+        aria-label="返回上一页"
+        >YUNHENODE</a
+      >
+      <nav>
+        <a href="visitor.html">访客入口</a>
+        <a href="article-list.html">文章</a>
+        <a href="case-list.html">案例</a>
+        <a href="gallery.html">作品</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </header>
 
-</body>
+    <section id="visitor-audio-player" class="visitor-audio-player" aria-label="访客音乐播放器" hidden>
+      <button id="visitor-audio-prev" class="visitor-audio-skip" type="button" aria-label="上一首">
+        ‹
+      </button>
+      <button
+        id="visitor-audio-toggle"
+        class="visitor-audio-toggle"
+        type="button"
+        aria-label="播放音乐"
+      >
+        <span id="visitor-audio-icon" aria-hidden="true">▶</span>
+      </button>
+      <button id="visitor-audio-next" class="visitor-audio-skip" type="button" aria-label="下一首">
+        ›
+      </button>
+      <div class="visitor-audio-copy">
+        <small>NOW PLAYING</small>
+        <strong id="visitor-audio-title">访客音乐</strong>
+      </div>
+      <div class="visitor-audio-progress" aria-hidden="true">
+        <span id="visitor-audio-progress-bar"></span>
+      </div>
+      <span id="visitor-audio-time" class="visitor-audio-time">0:00</span>
+      <label class="visitor-audio-volume" aria-label="播放器音量">
+        <span aria-hidden="true">VOL</span>
+        <input id="visitor-audio-volume" type="range" min="0" max="100" value="18" />
+      </label>
+      <button
+        id="visitor-audio-collapse"
+        class="visitor-audio-collapse"
+        type="button"
+        aria-label="收起播放器"
+        title="收起或展开播放器"
+      >
+        ‹
+      </button>
+      <audio id="visitor-audio-element" preload="metadata"></audio>
+    </section>
+
+    <aside
+      class="reading-route-drawer edge-drawer"
+      id="reading-route-drawer"
+      aria-label="访客阅读路线"
+    >
+      <button
+        class="edge-drawer-handle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="reading-route-content"
+        onclick="toggleEdgeDrawer('reading-route-drawer')"
+      >
+        <strong class="edge-drawer-title" aria-label="阅读路径">
+          <span aria-hidden="true">阅</span>
+          <span aria-hidden="true">读</span>
+          <span aria-hidden="true">路</span>
+          <span aria-hidden="true">径</span>
+        </strong>
+        <span class="edge-drawer-switch" aria-hidden="true"></span>
+      </button>
+      <div class="edge-drawer-content" id="reading-route-content">
+        <div class="edge-drawer-heading">
+          <p>READING GUIDE</p>
+          <h2>阅读路径</h2>
+          <span>从公开入口进入云鹤系统的文章、案例、作品和说明。</span>
+        </div>
+        <button
+          class="edge-drawer-close-hint"
+          type="button"
+          onclick="toggleEdgeDrawer('reading-route-drawer')"
+        >
+          向左滑动或点击关闭
+        </button>
+        <nav class="edge-route" aria-label="阅读顺序">
+          <a class="active" href="visitor.html">
+            <span>01</span><strong>访客入口</strong><small>了解公开内容范围。</small>
+          </a>
+          <a href="#featured-title">
+            <span>02</span><strong>重点阅读</strong><small>先阅读精选文章与案例。</small>
+          </a>
+          <a href="article-list.html?visitor=1">
+            <span>03</span><strong>文章</strong><small>阅读结构分析与现实观察。</small>
+          </a>
+          <a href="case-list.html?visitor=1">
+            <span>04</span><strong>案例</strong><small>查看问题、判断与验证。</small>
+          </a>
+          <a href="gallery.html?visitor=1">
+            <span>05</span><strong>作品</strong><small>浏览摄影与视觉记录。</small>
+          </a>
+          <a href="about.html?visitor=1">
+            <span>06</span><strong>关于我</strong><small>理解方法、边界与合作方式。</small>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="visitor-shell">
+      <section class="visitor-hero">
+        <p class="eyebrow">PUBLIC VISITOR ENTRY</p>
+        <h1>云鹤系统</h1>
+        <p>
+          这里是给外部访客阅读的公开页面，只展示文章、案例、作品与系统说明。内部日记不开放，随笔进入邮箱账户机制后再开放给注册访客。
+        </p>
+      </section>
+
+      <section class="visitor-grid" aria-label="公开内容入口">
+        <a class="visitor-card" href="article-list.html?visitor=1">
+          <span>01 / PUBLIC ARTICLES</span>
+          <h2>文章</h2>
+          <p>结构分析、现实观察、长期研究与方法记录。</p>
+        </a>
+
+        <a class="visitor-card" href="case-list.html?visitor=1">
+          <span>02 / CASE ARCHIVE</span>
+          <h2>案例</h2>
+          <p>问题、分析、决策、验证，以及现实事件整理。</p>
+        </a>
+
+        <a class="visitor-card" href="gallery.html?visitor=1">
+          <span>03 / VISUAL WORKS</span>
+          <h2>作品</h2>
+          <p>摄影作品、影像作品与视觉记录。</p>
+        </a>
+
+        <a class="visitor-card" href="about.html?visitor=1">
+          <span>04 / ABOUT SYSTEM</span>
+          <h2>关于</h2>
+          <p>云鹤系统的身份、方法、内容边界与联系方式。</p>
+        </a>
+      </section>
+
+      <section class="featured-section" aria-labelledby="featured-title">
+        <div class="featured-heading">
+          <p class="eyebrow">SELECTED READING</p>
+          <h2 id="featured-title">精选阅读</h2>
+          <p>按“最能说明云鹤系统如何观察、判断和验证现实”整理。</p>
+        </div>
+
+        <section class="featured-group">
+          <div class="featured-group-title">
+            <span>01</span>
+            <h3>重点文章</h3>
+          </div>
+          <div id="featured-primary" class="featured-list">
+            <p class="featured-loading">正在读取文章…</p>
+          </div>
+        </section>
+
+        <section class="featured-group">
+          <div class="featured-group-title">
+            <span>02</span>
+            <h3>现实观察与案例</h3>
+          </div>
+          <div id="featured-observation" class="featured-list">
+            <p class="featured-loading">正在读取内容…</p>
+          </div>
+        </section>
+
+        <section class="featured-group">
+          <div class="featured-group-title">
+            <span>03</span>
+            <h3>延伸阅读</h3>
+          </div>
+          <div id="featured-extended" class="featured-list">
+            <p class="featured-loading">正在读取文章…</p>
+          </div>
+        </section>
+      </section>
+
+      <footer class="visitor-site-footer">
+        <p class="visitor-note">访客入口仅供浏览。</p>
+        <div class="visitor-counter" id="visitor-counter" aria-live="polite" hidden>
+          <span>累计访客</span>
+          <strong id="visitor-counter-value">—</strong>
+        </div>
+      </footer>
+    </main>
+
+    <div class="visitor-floating-actions" aria-label="访客工具">
+      <button
+        class="visitor-tools-trigger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="visitor-tools-panel"
+        onclick="toggleVisitorTools()"
+      >
+        <span class="visitor-wave" aria-hidden="true"></span>
+        <span>Visitor</span>
+        <small>MENU</small>
+      </button>
+      <section
+        class="visitor-tools-panel"
+        id="visitor-tools-panel"
+        aria-label="选择访客工具"
+        aria-hidden="true"
+        hidden
+      >
+        <p>选择一个入口</p>
+        <button type="button" onclick="chooseVisitorTool('route')">
+          <span>阅读路径</span><small>READING PATH</small>
+        </button>
+        <button type="button" onclick="chooseVisitorTool('assistant')">
+          <span>阅读助手</span><small>LIBRARY DESK</small>
+        </button>
+        <button type="button" onclick="chooseVisitorTool('log')">
+          <span>访客登记</span><small>VISITOR LOG</small>
+        </button>
+        <button type="button" onclick="chooseVisitorTool('recent')">
+          <span>最近更新</span><small>RECENT</small>
+        </button>
+      </section>
+    </div>
+
+    <section
+      class="visitor-log-modal"
+      id="visitor-log-panel"
+      aria-label="访客登记"
+      aria-hidden="true"
+      hidden
+    >
+      <div
+        class="visitor-log-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="visitor-log-title"
+      >
+        <button
+          class="visitor-log-close"
+          type="button"
+          onclick="closeVisitorLog()"
+          aria-label="关闭登记框"
+        >
+          ×
+        </button>
+        <p class="eyebrow">VISITOR LOG</p>
+        <h2 id="visitor-log-title">访客登记</h2>
+        <form id="visitor-log-form" class="visitor-log-form">
+          <label>
+            怎么称呼你？<span>可选</span>
+            <input id="visitor-log-name" name="display_name" autocomplete="name" />
+          </label>
+
+          <label>
+            你从哪里来？
+            <select id="visitor-log-source" name="source" required>
+              <option value="">请选择</option>
+              <option value="公众号">公众号</option>
+              <option value="视频">视频</option>
+              <option value="朋友推荐">朋友推荐</option>
+              <option value="搜索">搜索</option>
+              <option value="其他">其他</option>
+            </select>
+          </label>
+
+          <label>
+            你为什么进入云鹤系统？
+            <select id="visitor-log-purpose" name="purpose" required>
+              <option value="">请选择</option>
+              <option value="看文章">看文章</option>
+              <option value="看案例">看案例</option>
+              <option value="看作品">看作品</option>
+              <option value="了解云鹤系统">了解云鹤系统</option>
+              <option value="其他">其他</option>
+            </select>
+          </label>
+
+          <label>
+            你想留下什么？<span>可选</span>
+            <textarea id="visitor-log-message" name="message" rows="4"></textarea>
+          </label>
+
+          <button type="submit">提交</button>
+          <p id="visitor-log-status" class="visitor-log-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section
+      class="visitor-assistant-modal"
+      id="visitor-assistant-panel"
+      aria-label="云鹤系统阅读助手"
+      aria-hidden="true"
+      hidden
+    >
+      <div
+        class="visitor-assistant-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="visitor-assistant-title"
+      >
+        <button
+          class="visitor-log-close"
+          type="button"
+          onclick="closeVisitorAssistant()"
+          aria-label="关闭阅读助手"
+        >
+          ×
+        </button>
+        <header class="visitor-assistant-heading">
+          <span class="visitor-assistant-orb" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow">YUNHE LIBRARY DESK</p>
+            <h2 id="visitor-assistant-title">阅读助手</h2>
+            <p class="visitor-assistant-boundary">
+              站内内容咨询台
+            </p>
+          </div>
+        </header>
+        <section class="assistant-desk-guide" aria-label="咨询台说明">
+          <div class="assistant-desk-section">
+            <p class="assistant-desk-label">请输入：</p>
+            <div class="assistant-desk-types" aria-label="选择咨询类型">
+              <button type="button" data-assistant-query="文章">文章</button>
+              <button type="button" data-assistant-query="案例">案例</button>
+              <button type="button" data-assistant-query="摄影">摄影</button>
+              <button type="button" data-assistant-focus>关键词</button>
+            </div>
+          </div>
+          <div class="assistant-desk-divider" aria-hidden="true"></div>
+          <div class="assistant-desk-section">
+            <p class="assistant-desk-label">我可以帮助你：</p>
+            <ul class="assistant-desk-services">
+              <li>寻找相关文章</li>
+              <li>推荐阅读路径</li>
+              <li>解释案例</li>
+              <li>定位摄影作品</li>
+            </ul>
+          </div>
+        </section>
+        <form id="visitor-assistant-form" class="visitor-assistant-form">
+          <label aria-label="输入一个站内问题">
+            <input
+              id="visitor-assistant-input"
+              name="question"
+              autocomplete="off"
+              placeholder="输入文章、案例、摄影或关键词"
+            />
+          </label>
+          <button type="submit" aria-label="发送问题">
+            <span>发送</span>
+            <svg
+              class="send-arrow"
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              focusable="false"
+            >
+              <path d="M3.5 16.5 16.5 3.5M8 3.5h8.5V12" />
+            </svg>
+          </button>
+        </form>
+        <section class="visitor-assistant-result" aria-live="polite">
+          <p class="assistant-result-label">咨询结果</p>
+          <p id="visitor-assistant-result-text">选择类型，或输入一个站内关键词。</p>
+        </section>
+        <p class="visitor-assistant-note">回答范围仅限本站公开内容。</p>
+      </div>
+    </section>
+
+    <script src="scripts/core/config.js"></script>
+    <script src="scripts/core/utils.js?v=20260718-1"></script>
+    <script src="scripts/components/edge-drawer.js?v=20260718-17"></script>
+    <script src="scripts/pages/visitor.js?v=20260726-counter-1"></script>
+    <script src="scripts/pages/visitor-audio-player.js?v=20260726-audio-12"></script>
+  </body>
 </html>
