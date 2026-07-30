@@ -1,0 +1,46 @@
+{
+  "id": "/",
+  "name": "云鹤系统",
+  "short_name": "云鹤",
+  "description": "云鹤系统公开访客入口：文章、案例、摄影作品与系统说明。",
+  "lang": "zh-CN",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#f4f3ee",
+  "theme_color": "#f4f3ee",
+  "orientation": "any",
+  "categories": ["education", "productivity", "books"],
+  "icons": [
+    {
+      "src": "visitor-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "visitor-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "文章",
+      "short_name": "文章",
+      "url": "/YUNHENODE.github.io/article-list.html?visitor=1"
+    },
+    {
+      "name": "案例",
+      "short_name": "案例",
+      "url": "/YUNHENODE.github.io/case-list.html?visitor=1"
+    },
+    {
+      "name": "摄影作品",
+      "short_name": "作品",
+      "url": "/YUNHENODE.github.io/gallery.html?visitor=1"
+    }
+  ]
+}
