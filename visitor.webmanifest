@@ -30,17 +30,17 @@
     {
       "name": "文章",
       "short_name": "文章",
-      "url": "/YUNHENODE.github.io/article-list.html?visitor=1"
+      "url": "https://yunhenode-github-io-qwu7.vercel.app/article-list.html?visitor=1"
     },
     {
       "name": "案例",
       "short_name": "案例",
-      "url": "/YUNHENODE.github.io/case-list.html?visitor=1"
+      "url": "https://yunhenode-github-io-qwu7.vercel.app/case-list.html?visitor=1"
     },
     {
       "name": "摄影作品",
       "short_name": "作品",
-      "url": "/YUNHENODE.github.io/gallery.html?visitor=1"
+      "url": "https://yunhenode-github-io-qwu7.vercel.app/gallery.html?visitor=1"
     }
   ]
 }
